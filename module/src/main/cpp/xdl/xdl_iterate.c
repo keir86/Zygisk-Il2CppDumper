@@ -258,6 +258,8 @@ static int xdl_iterate_by_maps(xdl_iterate_phdr_cb_t cb, void *cb_arg) {
 
     if (0 != memcmp((void *)base, ELFMAG, SELFMAG)) continue;
 
+    set_il2cpp_base((void*)base);
+
     ElfW(Ehdr) *ehdr = (ElfW(Ehdr) *)base;
     struct dl_phdr_info info;
     info.dlpi_name = pathname;
